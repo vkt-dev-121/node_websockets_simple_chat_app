@@ -1,0 +1,31 @@
+
+WebSockets represent a powerful communication protocol that enables bidirectional, real-time communication between clients and servers over a single, long-lived connection. Unlike traditional HTTP requests, which are stateless and require a new connection for each request-response cycle, WebSockets establish a persistent connection that allows for efficient, low-latency communication.
+
+
+       +-------------+                        +-------------+
+       |   Client    |     WebSocket Handshake     |   Server    |
+       +------+------+                        +------+------+ 
+              |                                         |
+     [1] Initiate Handshake (HTTP Request)      [2] Handle Handshake Request
+              |                                         |
+              +------------+----------------+-----------+
+                           |                |
+                 [3] Upgrade Connection   [4] Handshake Response (HTTP 101)
+                           |                |
+             +-------------|----------------|-------------+
+             |             |                |             |
+     [5] Send/Receive Data     |        [6] Send/Receive Data
+             |             |                |             |
+     [7] Close Connection     |        [8] Close Connection
+             |             |                |             |
+       +-----+------+      |          +-----+------+      |
+       |   Client    |      |          |   Server    |      |
+       +-------------+      |          +-------------+      |
+                            V                               V
+Upgraded Header
+
+Client and server modal
+
+client makes a request - servers sends response in that re
+
+WebSockets solve this problem
